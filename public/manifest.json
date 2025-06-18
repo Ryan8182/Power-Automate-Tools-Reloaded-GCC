@@ -12,7 +12,8 @@
    "permissions": [
       "activeTab",
       "webRequest",
-      "tabs"
+      "tabs",
+      "notifications"
    ],
    "host_permissions": [
       "*://*.flow.microsoft.com/",

@@ -32,19 +32,25 @@ export const FlowEditorPage: React.FC = () => {
     validationPaneIsOpen,
     setValidationPaneIsOpen,
   } = useFlowEditor();
+
+  const refreshToken = () => {
+    chrome.runtime.sendMessage({ type: 'refresh' });
+  };
+
   const commandBarItems = useMemo(
     () =>
       [
         {
           key: 'name',
-          text: name,
+          text: name || 'Loading...',
         },
         {
           key: 'save',
           text: 'Save',
           iconProps: {
-            iconName: 'Edit',
+            iconName: 'Save',
           },
+          disabled: !editor || !definition,
           onClick: async () => {
             const savedDefinition = await saveDefinition(name, environment, editor.getValue());
 
@@ -57,12 +63,21 @@ export const FlowEditorPage: React.FC = () => {
           key: 'validate',
           text: 'Validate',
           iconProps: {
-            iconName: 'Medical',
+            iconName: 'ComplianceAudit',
           },
+          disabled: !editor || !definition,
           onClick: () => validate(editor.getValue()),
         },
+        {
+          key: 'refresh',
+          text: 'Refresh Token',
+          iconProps: {
+            iconName: 'Refresh',
+          },
+          onClick: refreshToken,
+        },
       ] as ICommandBarItemProps[],
-    [name, editor]
+    [name, editor, definition, saveDefinition, validate, environment]
   );
 
   return (
@@ -82,6 +97,13 @@ export const FlowEditorPage: React.FC = () => {
             defaultValue={definition}
             language="json"
             onMount={(editor) => setEditor(editor)}
+            options={{
+              minimap: { enabled: false },
+              scrollBeyondLastLine: false,
+              fontSize: 14,
+              wordWrap: 'on',
+              automaticLayout: true,
+            }}
           />
         </div>
       )}
