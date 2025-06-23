@@ -119,6 +119,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
   listenFlowApiRequests,
   {
     urls: [
+      "https://make.gov.powerautomate.us/*",
+      "https://*.api.crm9.dynamics.com/*",
       "https://*.api.flow.microsoft.com/*",
       "https://*.api.powerautomate.com/*",
       "https://*.api.powerapps.com/*",
@@ -136,7 +138,13 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
       "https://switzerland.api.powerapps.com/*",
       "https://usgov.api.powerapps.us/*",
       "https://usgovhigh.api.powerapps.us/*",
-      "https://dod.api.powerapps.us/*"
+      "https://dod.api.powerapps.us/*",
+      "https://gov.api.powerapps.us/",
+      "https://*.gov.api.flow.microsoft.us/*",
+      "https://gov.api.flow.microsoft.us/*",
+      "https://*.gov.api.powerautomate.us/*",
+      "https://*.gov.api.powerapps.us/*",
+      "https://gov.api.powerapps.us/*"
     ],
   },
   ["requestHeaders"]
@@ -180,7 +188,7 @@ function showNotification(message: string) {
   chrome.notifications?.create({
     type: 'basic',
     iconUrl: 'icons/pa-tools-48.png',
-    title: 'Power Automate Tools',
+    title: 'Power Automate Tools GCC Edition',
     message: message
   });
 }
@@ -227,11 +235,12 @@ function listenFlowApiRequests(
   if (state.appTabId === details.tabId) {
     return;
   }
-
+  debugLog('Details:  ', details);
   debugLog('Intercepted API request:', details.url);
   
   state.lastMatchedRequest = extractFlowDataFromUrl(details);
 
+  
   const authHeader = details.requestHeaders?.find(
     (x) => x.name.toLowerCase() === "authorization"
   );
@@ -330,7 +339,7 @@ function extractFlowDataFromTabUrl(url?: string) {
     // Query parameter patterns
     /[?&]environmentId=([a-zA-Z0-9\-]*)/i,
     /[?&]env=([a-zA-Z0-9\-]*)/i,
-    // URL encoded patterns
+    // URL enco ded patterns
     /environments%2F([a-zA-Z0-9\-]*)/i,
   ];
 

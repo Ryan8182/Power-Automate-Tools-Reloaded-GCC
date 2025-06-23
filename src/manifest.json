@@ -15,7 +15,7 @@
       "tabs",
       "notifications"
    ],
-  "host_permissions": [
+"host_permissions": [
   "*://make.gov.powerautomate.us/*",
   "*://*.api.crm9.dynamics.com/*",
   "*://*.api.flow.microsoft.com/*",

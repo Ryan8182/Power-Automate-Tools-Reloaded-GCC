@@ -5,6 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production && npm run clean && webpack",
+    "build2": "cross-env NODE_ENV=development && npm run clean && webpack --mode development",
     "clean": "rimraf dist",
     "pack_bak": "pwsh .\\scripts\\pack-extension.ps1",
     "publish": "npm run build && npm run pack",
