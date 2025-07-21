@@ -3,3 +3,14 @@ dist
 *.pem
 *.crx
 .DS_Store
+/Gcc.code-workspace
+/.vs/Power-Automate-Tools-Reloaded-GCC/CopilotIndices/17.13.444.19527/CodeChunks.db-shm
+/.vs/Power-Automate-Tools-Reloaded-GCC/CopilotIndices/17.13.444.19527/CodeChunks.db-wal
+/.vs/Power-Automate-Tools-Reloaded-GCC/CopilotIndices/17.13.444.19527/SemanticSymbols.db-shm
+/.vs/Power-Automate-Tools-Reloaded-GCC/CopilotIndices/17.13.444.19527/SemanticSymbols.db-wal
+/.vs/Power-Automate-Tools-Reloaded-GCC/FileContentIndex/34c968e9-09b0-4d3e-abc4-d8a0a8a82fd9.vsidx
+/.vs/Power-Automate-Tools-Reloaded-GCC/FileContentIndex/6bb37cd6-5186-4607-9bc7-a0c0eb5d956f.vsidx
+/.vs/Power-Automate-Tools-Reloaded-GCC/FileContentIndex/deb109f0-121d-46bf-aff4-e9be825a5e9f.vsidx
+/.vs/slnx.sqlite
+/.vs/Power-Automate-Tools-Reloaded-GCC/FileContentIndex/5cb3c443-c14a-4f46-a2d0-72a4fcb02238.vsidx
+*.vsidx

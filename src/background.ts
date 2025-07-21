@@ -188,7 +188,7 @@ function showNotification(message: string) {
   chrome.notifications?.create({
     type: 'basic',
     iconUrl: 'icons/pa-tools-48.png',
-    title: 'Power Automate Tools GCC Edition',
+    title: 'Power Automate Tools(GCC)',
     message: message
   });
 }
